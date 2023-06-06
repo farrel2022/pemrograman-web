@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saran Masukkan</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        h5 {
+            text-align: left;
+            font-size: 25px;
+            font-weight: 800;
+            font-family: courier;
+            color: #000000;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        .tbl-contact {
+            color: #ff7b00;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .tbl-contact:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <p><a href="index.html" class="tbl-contact">Home</a></p>
+        <p>.</p>
+    </div>
+<h5>FORM</h5>
+<form>
+    <table>
+        <tr>
+            <th>Nama:</th>
+            <td><input type="text" id="nama" name="nama"></td>
+        </tr>
+        <tr>
+            <th>Nomor HP/WA:</th>
+            <td><input type="text" id="nomor" name="nomor"></td>
+        </tr>
+        <tr>
+            <th>Saran:</th>
+            <td><textarea id="saran" name="saran"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="KIRIM" onclick="kirimSaran()"></td>
+        </tr>
+    </table>
+</form>
+
+<div id="daftar-saran">
+    <h5>Daftar Saran</h5>
+    <table>
+        <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Nomor HP/WA</th>
+            <th>Saran</th>
+        </tr>
+        </thead>
+        <tbody>
+    
+        </tbody>
+    </table>
+    <p>.</p>
+    <p>.</p>
+</div>
+
+<script>
+    function kirimSaran() {
+        
+        var nama = document.getElementById("nama").value;
+        var nomor = document.getElementById("nomor").value;
+        var saran = document.getElementById("saran").value;
+
+        
+        var saranBaru = document.createElement("tr");
+        saranBaru.innerHTML = "<td>" + nama + "</td>" + "<td>" + nomor + "</td>" + "<td>" + saran + "</td>";
+
+var daftarSaran = document.getElementById("daftar-saran").getElementsByTagName("tbody")[0];
+        daftarSaran.appendChild(saranBaru);
+
+        
+        document.getElementById("nama").value = "";
+        document.getElementById("nomor").value = "";
+        document.getElementById("saran").value = "";
+    }
+</script>
+</body>
+
+</html>
